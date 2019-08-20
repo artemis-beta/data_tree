@@ -10,7 +10,7 @@ logger = logging.getLogger('DATATREETEST')
 logger.setLevel('DEBUG')
 
 class DataTreeTest(unittest.TestCase):
-    @settings(min_satisfying_examples=10, max_examples=50, timeout=10)
+    @settings(max_examples=50)
     @given(letter_1 = strategies.text( alphabet=string.printable, min_size=1, max_size=1),
            letter_2 = strategies.text( alphabet=string.printable, min_size=1, max_size=1))
     def test_no_dupes(self, letter_1, letter_2):
