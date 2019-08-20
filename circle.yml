@@ -1,0 +1,16 @@
+version: 2
+jobs:
+    build:
+       docker:
+               - image: circleci/python:3.7.4
+       steps: 
+         - checkout
+         - run:
+              name: Create virtualenv
+              command: python -m venv myenv
+         - run:
+              name: Install app and test
+              command: |
+                      . myenv/bin/activate
+                      pip install .
+                      nose2
