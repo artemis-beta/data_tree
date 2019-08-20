@@ -22,7 +22,7 @@ class DataTreeTest(unittest.TestCase):
             with self.assertRaises(IndexError):
                 dt.add_data(None, letter_2)
 
-    @given( letters = strategies.text( alphabet=string.ascii_uppercase, min_size=8, max_size=8) )
+    @given( letters = 'QWERTYUIOP' )
     def test_combine_trees(self, letters):
         dt_1, dt_2 = data_tree.DataTree(), data_tree.DataTree()
         dt_1.add_data(None, letters[0])
