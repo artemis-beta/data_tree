@@ -33,8 +33,8 @@ class DataTreeTest(unittest.TestCase):
         dt_2.add_data(letters[4], letters[5])
         dt_2.add_data(letters[4], letters[6])
         dt_2.add_data(letters[6], letters[7])
-        self._logger.debug(dt_1)
-        self._logger.debug(dt_2)
+        logger.debug(dt_1)
+        logger.debug(dt_2)
         dt_1+dt_2
 
 if __name__ in "__main__":
