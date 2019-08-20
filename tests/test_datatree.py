@@ -16,11 +16,13 @@ class DataTreeTest(unittest.TestCase):
     def test_no_dupes(self, letter_1, letter_2):
         dt = data_tree.DataTree()
         dt.add_data(None, letter_1)
-        self.assertRaises(IndexError, dt.add_data, (None, letter_1))
+        with self.assertRaises(IndexError):
+            dt.add_data(None, letter_1)
         if letter_1 == letter_2:
-            self.assertRaises(IndexError, dt.add_data, (None, letter_2))
+            with self.assertRaises(IndexError):
+                dt.add_data(None, letter_2)
 
-    @given( letters = [strategies.text( alphabet=string.ascii_uppercase, min_size=1, max_size=1) for i in range(8)] )
+    @given( letters = strategies.text( alphabet=string.ascii_uppercase, min_size=8, max_size=8) )
     def test_combine_trees(self, letters):
         dt_1, dt_2 = data_tree.DataTree(), data_tree.DataTree()
         dt_1.add_data(None, letters[0])
