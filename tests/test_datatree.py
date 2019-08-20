@@ -5,9 +5,9 @@ import logging
 import string
 
 logging.basicConfig()
-logging.setLevel('DEBUG')
 
 logger = logging.getLogger('DATATREETEST')
+logger.setLevel('DEBUG')
 
 class DataTreeTest(unittest.TestCase):
     @settings(min_satisfying_examples=10, max_examples=50, timeout=10)
